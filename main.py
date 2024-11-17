@@ -80,7 +80,7 @@ def download_md():
 
 
 def main():
-
+    """Trigger the job and check its status"""
     response = requests.post(url, headers=headers, json=data)
     # get run id
     run_id = response.json().get("run_id")
