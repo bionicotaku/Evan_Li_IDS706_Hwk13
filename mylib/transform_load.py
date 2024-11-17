@@ -21,17 +21,17 @@ def load(dataset: str = "dbfs:/FileStore/IDS_hwk13/data-engineer-salary-in-2024.
         try:
             spark = SparkSession.builder.appName("Read CSV").getOrCreate()
             
-            # 首先检查表是否存在
+            # first check if table exists
             table_exists = spark.catalog._jcatalog.tableExists("data_engineer_salary_in_2024")
             
-            # 读取CSV文件
+            # read CSV file
             data_engineer_salary_df = spark.read.csv(dataset, header=True, inferSchema=True)
             
             if not table_exists:
-                # 如果表不存在，添加id列并创建新表
+                # if table does not exist, add id column and create new table
                 data_engineer_salary_df = data_engineer_salary_df.withColumn("id", monotonically_increasing_id())
             
-            # 使用saveAsTable，但不添加重复的id列
+            # use saveAsTable, but do not add duplicate id column
             data_engineer_salary_df.write.format("delta").mode("overwrite").saveAsTable("data_engineer_salary_in_2024")
             
             num_rows = data_engineer_salary_df.count()

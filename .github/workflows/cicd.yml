@@ -30,6 +30,9 @@ jobs:
       - name: Sync Databricks Repo
         run: make sync_repo
       
-      - name: Run Job
+      - name: Run Job and Download Analysis Results
         run: make run_job
+
+      - name: Push Analysis Results
+        run: make push_results
       

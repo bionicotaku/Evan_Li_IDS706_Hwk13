@@ -12,7 +12,7 @@ def generate_markdown(output):
     markdown_content += "## Statistical Analysis\n\n"
     markdown_content += "```\n" + output + "```\n\n"
     
-    # 使用 dbutils.fs.put 来写入文件
+    # use dbutils.fs.put to write file
     dbutils.fs.put("dbfs:/FileStore/IDS_hwk13/analysis_results.md", markdown_content, True)  # noqa: F821
 
 def read_data(table_name="data_engineer_salary_in_2024"):

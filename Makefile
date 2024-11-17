@@ -20,7 +20,7 @@ run_job:
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
 
-generate_and_push:
+push_results:
 	# Add, commit, and push the generated files to GitHub
 	@if [ -n "$$(git status --porcelain)" ]; then \
 		git config --local user.email "action@github.com"; \

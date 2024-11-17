@@ -5,13 +5,13 @@ from dotenv import load_dotenv
 
 def sync_databricks_repo(branch: str = "main") -> bool:
     """
-    同步 GitHub 仓库到 Databricks Repos
+    sync GitHub repo to Databricks Repos
     
     Args:
-        branch: 要同步的分支名称，默认为 "main"
+        branch: branch name to sync, default is "main"
     
     Returns:
-        bool: 同步是否成功
+        bool: whether sync is successful
     """
     load_dotenv(override=True)
     host = os.environ.get('SERVER_HOSTNAME')
@@ -45,5 +45,5 @@ def sync_databricks_repo(branch: str = "main") -> bool:
         return False
 
 if __name__ == "__main__":
-    # 可以直接从命令行运行此脚本
+    # can run this script directly from command line
     sync_databricks_repo()

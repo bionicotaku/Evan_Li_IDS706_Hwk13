@@ -19,10 +19,10 @@ data = {"job_id": job_id}
 
 response = requests.post(url, headers=headers, json=data)
 
-# 获取运行ID
+# get run id
 run_id = response.json().get("run_id")
 
-# 定义检查作业状态的函数
+# define function to check job status
 def check_job_status(run_id):
     status_url = f"https://{server_h}/api/2.0/jobs/runs/get"
     params = {"run_id": run_id}
@@ -39,7 +39,7 @@ def check_job_status(run_id):
                 return result_state == "SUCCESS"
             else:
                 print(f"Job still running... Current state: {life_cycle_state}")
-                time.sleep(30)  # 每30秒检查一次
+                time.sleep(15) # check every 15 seconds
         else:
             print(f"Error checking status: {status_response.status_code}")
             return False
@@ -57,7 +57,7 @@ def download_md():
         return f"Error downloading file: {response.status_code}, {response.text}"
 
 
-# 如果作业触发成功，检查其状态
+# if job run successfully triggered, check its status and download the analysis results
 if response.status_code == 200:
     print("Job run successfully triggered")
     job_success = check_job_status(run_id)
