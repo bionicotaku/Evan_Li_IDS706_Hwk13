@@ -1,4 +1,5 @@
 .env
+.ruff_cache
 #ignore huggingface
 summarizeApp
 #ignore fine-tuning

@@ -3,6 +3,8 @@ from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 import io
 from contextlib import redirect_stdout
+import dbutils
+
 def generate_markdown(output):    
     # Generate markdown content
     markdown_content = "# Data Analysis Results\n\n"
@@ -10,8 +12,9 @@ def generate_markdown(output):
     # Add code output
     markdown_content += "## Statistical Analysis\n\n"
     markdown_content += "```\n" + output + "```\n\n"
-    with open("dbfs:/FileStore/IDS_hwk13/analysis_results.md", "w") as md_file:
-        md_file.write(markdown_content)
+    
+    # 使用 dbutils.fs.put 来写入文件
+    dbutils.fs.put("dbfs:/FileStore/IDS_hwk13/analysis_results.md", markdown_content, True)  # True 表示覆写已存在的文件
 
 def read_data(table_name="data_engineer_salary_in_2024"):
     """
