@@ -11,7 +11,10 @@ format:
 lint:
 	ruff check --line-length 120 *.py mylib/*.py test_*.py
 
-run:
+sync_repo:
+	python mylib/sync_databricks.py
+
+run_job:
 	python main.py
 
 container-lint:

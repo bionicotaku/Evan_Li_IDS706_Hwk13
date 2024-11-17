@@ -46,10 +46,15 @@ def check_job_status(run_id):
 
 
 def download_md():
+    download_url = f"https://{server_h}/api/2.0/dbfs/get-status?path=dbfs:/FileStore/IDS_hwk13/analysis_results.md"
     response = requests.get(
-        f"https://{server_h}/api/2.0/dbfs/get-status?path=dbfs:/FileStore/IDS_hwk13/analysis_results.md"
+        download_url,
+        headers=headers
     )
-    return response.content
+    if response.status_code == 200:
+        return response.json().get("contents", "No content available")
+    else:
+        return f"Error downloading file: {response.status_code}, {response.text}"
 
 
 # 如果作业触发成功，检查其状态

@@ -18,4 +18,18 @@ jobs:
           echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
           echo "JOB_ID=${{ secrets.JOB_ID }}" >> $GITHUB_ENV
           echo "REPO_ID=${{ secrets.REPO_ID }}" >> $GITHUB_ENV
+      - name: Install Dependencies
+        run: make install
+      
+      - name: Format Code
+        run: make format
+      
+      - name: Lint Code
+        run: make lint
+
+      - name: Sync Databricks Repo
+        run: make sync_repo
+      
+      - name: Run Job
+        run: make run_job
       
