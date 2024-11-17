@@ -121,27 +121,27 @@ if __name__ == "__main__":
     with redirect_stdout(captured_output):
         # Calculate and print statistics
         print("Salary Statistics:")
-        calculate_stat.calculate_stat(data).show()
+        calculate_stat(data).show()
         print()
 
         # Print job title distribution
         print("Top 20 Job Titles Distribution:")
-        calculate_stat.get_job_title_distribution(data).show()
+        get_job_title_distribution(data).show()
         print()
 
         # Print experience level distribution
         print("Experience Level Distribution:")
-        calculate_stat.get_experience_level_distribution(data).show()
+        get_experience_level_distribution(data).show()
         print()
 
         # Print salary statistics by experience level
         print("Salary Statistics by Experience Level:")
-        calculate_stat.calculate_salary_stats_by_experience(data).show()
+        calculate_salary_stats_by_experience(data).show()
         print()
 
         # Print high paying jobs analysis using Spark SQL
         print("High Paying Jobs Analysis (SQL):")
-        calculate_stat.analyze_high_paying_jobs_sql(data).show(truncate=False)
+        analyze_high_paying_jobs_sql(data).show(truncate=False)
         print()
 
         # Print salary distribution analysis using PySpark
@@ -156,7 +156,7 @@ if __name__ == "__main__":
         print(
             "Salary Distribution Analysis by Experience Level and Salary Range (data transformation):"
         )
-        calculate_stat.analyze_salary_trends(data).show(truncate=False)
+        analyze_salary_trends(data).show(truncate=False)
         print()
     output = captured_output.getvalue()
     generate_markdown(output)
