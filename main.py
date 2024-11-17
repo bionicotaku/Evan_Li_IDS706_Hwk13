@@ -11,7 +11,7 @@ import os
 if __name__ == "__main__":
     current_directory = os.getcwd()
     print(current_directory)
-    extract()
+    # extract()
     load()
-    query_transform()
-    viz()
+    # query_transform()
+    # viz()

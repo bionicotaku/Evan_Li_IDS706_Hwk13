@@ -23,5 +23,8 @@ deploy:
 
 all: install lint test format deploy
 
+run:
+	python main.py
+
 job:
 	python run_job.py
