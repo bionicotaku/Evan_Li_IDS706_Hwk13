@@ -39,7 +39,6 @@ def extract(
     """Extract a url to a file path and unzip if it's a zip file"""
     if is_running_on_databricks():
         try:
-            import databricks.data
             csv_content, csv_filename = download_and_extract_csv(url)
             if csv_content is not None:
                 csv_path = f"{directory}/{csv_filename}"
