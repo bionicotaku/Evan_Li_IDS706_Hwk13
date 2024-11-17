@@ -9,7 +9,7 @@ format:
 	black *.py
 
 lint:
-	ruff check --line-length 120 *.py mylib/*.py test_*.py
+	ruff check --line-length 120 *.py mylib/*.py
 
 sync_repo:
 	python mylib/sync_databricks.py

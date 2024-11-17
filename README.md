@@ -1,5 +1,5 @@
 # Evan_Li_IDS706_Hwk13
-[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week11/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week11/actions/workflows/cicd.yml)
+[![CI](https://github.com/bionicotaku/Evan_Li_IDS706_Hwk13/actions/workflows/cicd.yml/badge.svg)](https://github.com/bionicotaku/Evan_Li_IDS706_Hwk13/actions/workflows/cicd.yml)
 ## Data Pipeline with Databricks
 
 **Overview:**
